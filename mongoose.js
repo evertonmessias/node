@@ -6,7 +6,7 @@ npm install --save mongoose
 //Mongoose
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/teste")
-    //mongoose.connect("mongodb+srv://root:efc2505xx@cluster0-qjwu2.gcp.mongodb.net/test?retryWrites=true&w=majority")
+//mongoose.connect("mongodb+srv://root:efc2505xx@cluster0-qjwu2.gcp.mongodb.net/test?retryWrites=true&w=majority")
     .then(() => {
         console.log("OK");
     })
