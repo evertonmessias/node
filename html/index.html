@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>IMC com JQuery</title>
+
+<style type="text/css">
+fieldset{display:block;position:relative;top:30px;margin: 0 auto; width: 150px;}
+label{display:block;position:relative; background-color:silver;float:left; width: 70px;height:20px;padding:1px;text-align: left;}
+input{display:block;position:relative;float:right; width: 70px;}::placeholder{color: #696969;}
+button{display:block;position:relative; margin: 0px auto;}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+// IMC com JQuery
+
+$(function () {
+
+$("#botao").click(function () {
+
+var peso = $("#peso").val();
+var altura = $("#altura").val();
+
+if (peso && altura){
+
+var imc = (peso / (Math.pow(altura,2))).toFixed(1);
+
+$("#imc").val(imc).css({"fontWeight":"bold","color":"red"});
+}
+
+});
+
+})
+</script>
+</head>
+<body>
+
+<form>
+
+<fieldset><legend>Calculo do IMC</legend>
+<label>Peso : </label><input type="number" min="0" max="200" step="0.1" id="peso" placeholder=" kilos" required />
+<br><br>
+<label>Altura : </label><input type="number" min="0" max="2.5" step="0.01" id="altura" placeholder=" metros" required />
+<br><br>
+<button type="button" id="botao" >CALCULAR</button>
+<br>
+<label>IMC : </label><input type="text" id="imc" placeholder=" resposta" readonly />
+</fieldset>
+
+</form>
+
+</body>
+</html>
