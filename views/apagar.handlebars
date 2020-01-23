@@ -1,6 +1,17 @@
-<fieldset><legend><h1>Apagar</h1></legend>
-<p>APAGAR</p>
-</fieldset>
-<br>
+<h1 class="del">Apagar</h1>
+<table>
+    <tr>
+        <th><b>Id</b></th>
+        <th><b>Nome</b></th>
+        <th><b>Telefone</b></th>
+    </tr>
+    {{#each tudo}}
+    <tr class="del" onclick="javascript:location.href='/deletar/{{id}}'">
+            <td>{{id}}</td>
+            <td>{{nome}}</td>
+            <td>{{telefone}}</td>
+    </tr>
+    {{/each}}
+</table><br>
 <hr>
-<a class="botao" href="/">Voltar</a class="botao">
+<a class="botao" href="/">Voltar</a>
