@@ -5,16 +5,19 @@ npm install --save mongoose
 
 //Mongoose
 const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://root:efc2505xx@cluster0-qjwu2.gcp.mongodb.net/test?retryWrites=true&w=majority").then(()=>{
-    console.log("OK");
-}).catch(()=>{
-    console.log("ERRO");
-});
+mongoose.connect("mongodb://localhost/teste")
+    //mongoose.connect("mongodb+srv://root:efc2505xx@cluster0-qjwu2.gcp.mongodb.net/test?retryWrites=true&w=majority")
+    .then(() => {
+        console.log("OK");
+    })
+    .catch(() => {
+        console.log("ERRO");
+    });
 
 //Model
 const usuario = mongoose.Schema({
-    nome: { type: String, require:true },
-    telefone: { type: String, require:true }
+    nome: { type: String, require: true },
+    telefone: { type: String, require: true }
 });
 
 //Collection
@@ -23,12 +26,12 @@ mongoose.model('usuario', usuario);
 //Inserir
 const novoUsuario = mongoose.model('usuario');
 new novoUsuario({
-    nome: "Paulo",
-    telefone: "99999999"
-}).save().then(()=>{
+    nome: "Everton",
+    telefone: "787878787"
+}).save().then(() => {
     console.log("Usuario criado com sucesso");
-}).catch((err)=>{
-    console.log("Erro ao criar usuario;"+err);
+}).catch((err) => {
+    console.log("Erro ao criar usuario;" + err);
 });
 
 /*
@@ -57,7 +60,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// ******** Rotas ******** 
+// ******** Rotas ********
 app.get("/", (req, res) => {
     res.render("home");
 })
