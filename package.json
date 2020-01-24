@@ -2,7 +2,7 @@
   "name": "testenode",
   "version": "1.0.0",
   "description": "",
-  "main": "52Node.js",
+  "main": "",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node mongoose.js"
+    "start": "nodemon sistema.js"
   },
   "author": "",
   "license": "ISC"
