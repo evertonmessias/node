@@ -29,9 +29,9 @@ sequelize.authenticate()
     .catch(() => { console.log("ERRO") });
 
 const cadastro = sequelize.define('cadastro', {
-    nome: { type: Sequelize.STRING },
-    telefone: { type: Sequelize.STRING }
-})//cadastro.sync({force: true}); // aqui cria a tabela
+        nome: { type: Sequelize.STRING },
+        telefone: { type: Sequelize.STRING }
+    }) //cadastro.sync({force: true}); // aqui cria a tabela
 
 //Body-Parser
 const bodyParser = require("body-parser");
@@ -39,6 +39,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // ******** Rotas ******** 
+
+app.use(express.static('./public')); //para css e jquery
+
 app.get("/", (req, res) => {
     res.render("home");
 })
@@ -55,11 +58,13 @@ app.get("/consulta", (req, res) => {
 
 app.post("/inserir", (req, res) => {
     cadastro.create({
-        nome: req.body.nome, telefone: req.body.telefone,
-        createdAt: '01/01/2020', updatedAt: '01/01/2020'
-    }).then(function () {
+        nome: req.body.nome,
+        telefone: req.body.telefone,
+        createdAt: '01/01/2020',
+        updatedAt: '01/01/2020'
+    }).then(function() {
         res.redirect("/consulta");
-    }).catch(function () {
+    }).catch(function() {
         res.send("Erro no Formulário!" + erro);
     })
 })
