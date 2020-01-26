@@ -16,7 +16,9 @@ table,
 form,
 fieldset,
 #menu,
-ul {
+ul,
+p.home,
+img.home {
     display: block;
     position: relative;
     margin: 0 auto;
@@ -29,6 +31,10 @@ ul {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+h1 a{text-decoration: none;color: #606060;}
+p.home{width: 200px;margin-top: 40px;font-weight: bold;font-size: 20px;}
+img.home{width: 300px;}
 
 fieldset {
     width: 300px;
@@ -70,8 +76,15 @@ table tr.del:hover {
     width: 500px;
     height: 42px;
 }
+ul {
+    list-style: none;
+}
 
-a {
+li {
+    float: left;
+    margin-left: 30px;
+}
+li a {
     font-size: 18px;
     text-align: center;
     display: block;
@@ -83,20 +96,7 @@ a {
     color: #000;
 }
 
-a.botao {
-    margin: 0 auto;
-}
-
-a:hover {
+li a:hover {
     color: #fff;
     background-color: #aaa;
-}
-
-ul {
-    list-style: none;
-}
-
-li {
-    float: left;
-    margin-left: 30px;
 }
